@@ -3,7 +3,7 @@
 <h2 align='center'> ★彡[Leetcode solution to problems]彡★ </h2>
 
 
-![leetcode image](/zAsssets/leetcode.png)
+![leetcode image](leetcode.png)
 
 
 
