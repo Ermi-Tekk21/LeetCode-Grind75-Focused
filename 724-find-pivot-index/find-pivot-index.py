@@ -3,7 +3,7 @@ class Solution:
         prefixSum = [nums[0]]
 
         for i in range (1, len(nums)):
-            prefixSum.append(prefixSum[i-1] + nums[i])
+            prefixSum.append(prefixSum[i-1] + nums[i]) 
 
         for j in range (len(prefixSum)):
             if j == 0:
