@@ -1,21 +1,13 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        pair_of_char = {
-            '{': '}',
-            '[': ']',
-            '(': ')'
-        }
-        stack = []
-        
+        hash_table = {'{': '}', '[': ']', '(': ')'}
+        store_open = []
         
         for char in s:
-            if char in pair_of_char.keys():
-                stack.append(char) 
-            else :
-                if not stack or pair_of_char[stack.pop()] != char:
+            if char in hash_table:  
+                store_open.append(hash_table[char])
+            else:
+                if not store_open or char != store_open.pop():
                     return False
-        if stack :
-            return False
         
-        
-        return True
+        return not store_open
