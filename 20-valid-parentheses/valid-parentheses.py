@@ -6,7 +6,7 @@ class Solution:
         for char in s:
             if char in hash_table:  
                 store_open.append(hash_table[char])
-            else:
+            else: # closing bracket
                 if not store_open or char != store_open.pop():
                     return False
         
