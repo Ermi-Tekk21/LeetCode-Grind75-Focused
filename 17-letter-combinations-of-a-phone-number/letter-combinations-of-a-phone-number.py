@@ -1,18 +1,23 @@
+from typing import List
+
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
-        if not digits:
+        keypad = {2: "abc", 3: "def", 4: "ghi", 5: "jkl", 
+                  6: "mno", 7: "pqrs", 8: "tuv", 9: "wxyz"}
+        res, sol = [], []
+
+        if digits == "":
             return []
-        
-        phone = {"2": "abc", "3": "def", "4": "ghi", "5": "jkl", "6": "mno", "7": "pqrs", "8": "tuv", "9": "wxyz"}
-        res = []
-        
-        def backtrack(combination, next_digits):
-            if not next_digits:
-                res.append(combination)
+
+        def dfs(i):
+            if i == len(digits):
+                res.append("".join(sol))
                 return
-            
-            for letter in phone[next_digits[0]]:
-                backtrack(combination + letter, next_digits[1:])
-        
-        backtrack("", digits)
+
+            for char in keypad[int(digits[i])]:
+                sol.append(char)
+                dfs(i + 1)
+                sol.pop()  # Backtrack
+
+        dfs(0)
         return res
